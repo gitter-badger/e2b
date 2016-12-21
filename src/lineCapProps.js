@@ -1,0 +1,1 @@
+module.exports = ['butt', 'round', 'square'];

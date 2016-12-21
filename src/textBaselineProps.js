@@ -1,0 +1,1 @@
+module.exports = ["top", "hanging", "middle", "alphabetic", "ideographic", "bottom"];
