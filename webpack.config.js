@@ -35,8 +35,8 @@ let buildConfig = (useBabel, useUglify, name) => ({
   ]
 });
 module.exports = [
-  buildConfig(false, false, 'e2d'),
-  buildConfig(true, false, 'e2d.compat'),
-  buildConfig(false, true, 'e2d.min'),
-  buildConfig(true, true, 'e2d.compat.min')
+  buildConfig(false, false, 'e2b'),
+  buildConfig(true, false, 'e2b.compat'),
+  buildConfig(false, true, 'e2b.min'),
+  buildConfig(true, true, 'e2b.compat.min')
 ];

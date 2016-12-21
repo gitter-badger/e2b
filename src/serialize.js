@@ -1,5 +1,5 @@
 let concat = [].concat;
-let Instruction = require('./Instruction');
+let { Instruction } = require('e2d');
 let consts = require('./consts');
 
 //property indexes
@@ -41,13 +41,7 @@ let points = {
 };
 
 
-let pushString = (data, value) => {
-  for (let i = 0; i < value.length; i++) {
-    data.push(
-      value.charCodeAt(i)
-    );
-  }
-};
+let pushString = require('./pushString');
 
 let serialize = (...args) => {
   let custom = {};

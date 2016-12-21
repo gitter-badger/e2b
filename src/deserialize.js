@@ -52,21 +52,9 @@ let points = {
   [consts.lineTo]: 'lineTo'
 };
 
-let getString = (data, index, length) => {
-  let value = '';
-  for (let i = 0; i < length; i++) {
-    value += String.fromCharCode(data[index + i]);
-  }
-  return value;
-};
+let getString = require('./getString');
 
-let getArray = (data, index, length) => {
-  let value = [];
-  for(let i = 0; i < length; i++) {
-    value.push(data[i]);
-  }
-  return value;
-};
+let getArray = require('./getArray');
 
 let deserialize = (data, custom) => {
   let tree = [];
