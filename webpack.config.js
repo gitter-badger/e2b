@@ -1,9 +1,10 @@
 var path = require('path'),
     pkg = require('./package.json'),
     webpack = require('webpack'),
-    Babili = require('babili-webpack-plugin');
+    Babili = require('babili-webpack-plugin'),
+    LibrarySourcePlugin = require('library-src-plugin');
 
-let buildConfig = (useBabel, useUglify, name) => ({
+let buildConfig = (useBabel, minify, name) => ({
   context: __dirname,
   entry: {
     [name]: './index.js'
@@ -22,17 +23,18 @@ let buildConfig = (useBabel, useUglify, name) => ({
       }
     ] : []
   },
-  plugins: useUglify && useBabel ? [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    })
-  ] :
-  useUglify && !useBabel ? [
+  plugins: (minify ?  [
     new Babili()
-  ] : [],
+  ] : []).concat([
+    new LibrarySourcePlugin({
+      entry: pkg.name,
+      folder: './src/'
+    })
+  ]),
   externals: [
     'e2d'
-  ]
+  ],
+  performance: false
 });
 module.exports = [
   buildConfig(false, false, 'e2b'),

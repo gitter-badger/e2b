@@ -62,7 +62,7 @@ let getString = require('./getString');
 
 let getArray = require('./getArray');
 
-let deserialize = (data, ctx) => {
+let render = (data, ctx) => {
 
   for(let i = 0; i < data.length;) {
     let command = data[i];
